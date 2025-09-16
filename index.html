@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Wallet Deeplinks - Connect to Phantom, Solflare, Backpack & Trust Wallet</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Connect to your favorite mobile wallets instantly. Open Phantom, Solflare, Backpack, and Trust Wallet apps with one click on your mobile device.">
+    <meta name="keywords" content="mobile wallet, deeplink, phantom wallet, solflare, backpack wallet, trust wallet, crypto wallet, solana">
+    <meta name="author" content="Mobile Wallet Deeplinks">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mobile Wallet Deeplinks">
+    <meta property="og:description" content="Connect to your favorite mobile wallets instantly. Open Phantom, Solflare, Backpack, and Trust Wallet apps with one click.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.vercel.app">
+    <meta property="og:image" content="https://your-domain.vercel.app/og-image.png">
+    <meta property="og:site_name" content="Mobile Wallet Deeplinks">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mobile Wallet Deeplinks">
+    <meta name="twitter:description" content="Connect to your favorite mobile wallets instantly. Open Phantom, Solflare, Backpack, and Trust Wallet apps with one click.">
+    <meta name="twitter:image" content="https://your-domain.vercel.app/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mobile Wallet Deeplinks</h1>
+            <p>Connect to your favorite mobile wallets</p>
+        </header>
+        
+        <div class="wallet-grid">
+            <div class="wallet-card">
+                <div class="wallet-icon">👻</div>
+                <h3>Phantom</h3>
+                <p>Solana wallet for DeFi and NFTs</p>
+                <button class="wallet-btn advanced-btn" onclick="openPhantomAdvanced()">
+                    Sign Message "hello"
+                </button>
+                <button class="wallet-btn" onclick="openPhantomConnect()">
+                    Connect & Sign
+                </button>
+            </div>
+            
+            <div class="wallet-card">
+                <div class="wallet-icon">☀️</div>
+                <h3>Solflare</h3>
+                <p>Secure Solana wallet</p>
+                <button class="wallet-btn advanced-btn" onclick="openSolflareSignMessage()">
+                    Sign Message "hello"
+                </button>
+                <button class="wallet-btn" onclick="openSolflare()">
+                    Connect
+                </button>
+                <button class="wallet-btn" onclick="openSolflareSignTransaction()">
+                    Sign Transaction
+                </button>
+                <button class="wallet-btn" onclick="openSolflareDisconnect()">
+                    Disconnect
+                </button>
+            </div>
+            
+            <div class="wallet-card">
+                <div class="wallet-icon">🎒</div>
+                <h3>Backpack</h3>
+                <p>Solana wallet and exchange</p>
+                <button class="wallet-btn advanced-btn" onclick="openBackpackSignMessage()">
+                    Sign Message "hello"
+                </button>
+                <button class="wallet-btn" onclick="openBackpack()">
+                    Browse in App
+                </button>
+                <button class="wallet-btn" onclick="openBackpackConnect()">
+                    Connect
+                </button>
+                <button class="wallet-btn" onclick="openBackpackSignTransaction()">
+                    Sign Transaction
+                </button>
+                <button class="wallet-btn" onclick="openBackpackDisconnect()">
+                    Disconnect
+                </button>
+            </div>
+            
+            <div class="wallet-card">
+                <div class="wallet-icon">🛡️</div>
+                <h3>Trust Wallet</h3>
+                <p>Multi-chain crypto wallet with WalletConnect</p>
+                <button class="wallet-btn advanced-btn" onclick="openTrustWalletSignMessage()">
+                    Sign Message "hello"
+                </button>
+                <button class="wallet-btn" onclick="openTrustWalletSignMessageCustom()">
+                    Custom Sign Method
+                </button>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>How it works:</h3>
+            <ul>
+                <li>Click any wallet button to open the app on your mobile device</li>
+                <li>If the app isn't installed, you'll be redirected to the app store</li>
+                <li>Works on both iOS and Android devices</li>
+                <li><strong>Phantom:</strong> Uses official universal links for direct app opening</li>
+            </ul>
+            
+            <h3 style="margin-top: 25px;">Phantom Features:</h3>
+            <ul>
+                <li>✅ Universal Links support (https://phantom.app/ul/)</li>
+                <li>✅ Message signing with "hello"</li>
+                <li>✅ Wallet connection and approval</li>
+                <li>✅ Cross-platform compatibility</li>
+                <li>✅ Fallback to website if app not installed</li>
+                <li>✅ Mobile-optimized deeplinks</li>
+            </ul>
+            
+            <h3 style="margin-top: 25px;">How Each Wallet Works:</h3>
+            <ul>
+                <li><strong>Phantom:</strong> "Sign Message 'hello'" - Opens Phantom to sign the message "hello"</li>
+                <li><strong>Phantom:</strong> "Connect & Sign" - Connects to wallet and triggers message signing</li>
+                <li><strong>Solflare:</strong> "Sign Message 'hello'" - Uses official deeplinks with Base64 encoding</li>
+                <li><strong>Solflare:</strong> "Connect" - Establishes encrypted session with Solflare</li>
+                <li><strong>Solflare:</strong> "Sign Transaction" - Signs Solana transactions</li>
+                <li><strong>Solflare:</strong> "Disconnect" - Properly disconnects from wallet</li>
+                <li><strong>Trust Wallet:</strong> "Sign Message 'hello'" - Uses WalletConnect to sign message</li>
+                <li><strong>Trust Wallet:</strong> "Custom Sign Method" - Uses trust_signMessage method</li>
+                <li><strong>Backpack:</strong> "Sign Message 'hello'" - Uses official deeplinks with Base64 encoding</li>
+                <li><strong>Backpack:</strong> "Browse in App" - Opens web app in Backpack's in-app browser</li>
+                <li><strong>Backpack:</strong> "Connect" - Establishes encrypted session with Backpack</li>
+                <li><strong>Backpack:</strong> "Sign Transaction" - Signs Solana transactions</li>
+                <li><strong>Backpack:</strong> "Disconnect" - Properly disconnects from wallet</li>
+                <li>All methods will show approval dialog in respective wallet apps</li>
+            </ul>
+            
+            <h3 style="margin-top: 25px;">Solflare Features:</h3>
+            <ul>
+                <li>✅ Official deeplinks (https://solflare.com/ul/v1/)</li>
+                <li>✅ End-to-end encryption with shared secrets</li>
+                <li>✅ Session management for secure interactions</li>
+                <li>✅ Solana mainnet-beta, testnet, devnet support</li>
+                <li>✅ Message signing with Base64 encoding</li>
+                <li>✅ Transaction signing capabilities</li>
+                <li>✅ Proper disconnect functionality</li>
+                <li>✅ Cross-platform compatibility</li>
+                <li>✅ Comprehensive error handling and callbacks</li>
+                <li>✅ Complete wallet lifecycle management</li>
+            </ul>
+            
+            <h3 style="margin-top: 25px;">Backpack Features:</h3>
+            <ul>
+                <li>✅ Official deeplinks (https://backpack.app/ul/v1/)</li>
+                <li>✅ In-app browser integration</li>
+                <li>✅ End-to-end encryption with shared secrets</li>
+                <li>✅ Session management for secure interactions</li>
+                <li>✅ Solana mainnet-beta, testnet, devnet support</li>
+                <li>✅ Message signing with Base64 encoding</li>
+                <li>✅ Transaction signing capabilities</li>
+                <li>✅ Proper disconnect functionality</li>
+                <li>✅ Cross-platform compatibility</li>
+                <li>✅ Comprehensive error handling and callbacks</li>
+            </ul>
+            
+            <h3 style="margin-top: 25px;">Trust Wallet Features:</h3>
+            <ul>
+                <li>✅ WalletConnect protocol integration</li>
+                <li>✅ Multi-chain support (Ethereum, BSC, Solana, etc.)</li>
+                <li>✅ Secure bridge connection</li>
+                <li>✅ Cross-platform compatibility</li>
+                <li>✅ Transaction signing capabilities</li>
+                <li>✅ Message signing with "hello"</li>
+                <li>✅ Custom trust_signMessage method</li>
+                <li>✅ Ethereum network support (SLIP-44: 60)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
